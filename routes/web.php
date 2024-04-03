@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,10 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
+// Rute untuk menampilkan form prediksi
+Route::get('/AI', [AIController::class, 'index']);
+// Rute untuk melakukan prediksi berdasarkan input dari form
+Route::post('/AI/predict', [AIController::class, 'predict']);
 
 // Apply CheckLogin middleware to routes that require authentication
 Route::middleware(['auth'])->group(function () {
@@ -37,9 +42,9 @@ Route::middleware(['auth'])->group(function () {
             return view('Diskusi');
         });
 
-        Route::get('/AI', function () {
-            return view('AI');
-        });
+        // Route::get('/AI', function () {
+        //     return view('AI');
+        // });
 
         Route::get('/Artikel', function () {
             return view('Artikel');
