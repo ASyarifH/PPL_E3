@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agrikultura</title>
+    <title>PPL</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -129,16 +129,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="">Home</a>
+                            <a class="nav-link click-scroll" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="Artikel">Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="AI">AI</a>
+                            <a class="nav-link click-scroll" href="Diskusi">Diskusi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="Diskusi">Diskusi</a>
+                            <a class="nav-link click-scroll" href="AI">Prediksi Tanam</a>
                         </li>
                     </ul>
                     <!-- Button Login -->
