@@ -49,8 +49,8 @@ suhu = float(sys.argv[1])
 curah_hujan = sys.argv[2]
 pH = float(sys.argv[3])
 
-# Cetak nilai input
-print("Nilai Input: suhu =", suhu, "curah_hujan =", curah_hujan, "pH =", pH)
+# # Cetak nilai input
+# print("Nilai Input: suhu =", suhu, "curah_hujan =", curah_hujan, "pH =", pH)
 
 # Panggil fungsi predict_crop dengan argumen dari command line
 hasil_prediksi = predict_crop(suhu, curah_hujan, pH)

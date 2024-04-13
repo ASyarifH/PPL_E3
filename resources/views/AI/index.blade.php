@@ -124,13 +124,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="">Home</a>
+                            <a class="nav-link click-scroll" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="Artikel">Artikel</a>
+                            <a class="nav-link click-scroll" href="artikel">Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="Diskusi">Diskusi</a>
+                            <a class="nav-link click-scroll" href="diskusi">Diskusi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="AI">Prediksi Tanam</a>
@@ -143,7 +143,7 @@
         </nav>
     </main>
         <div class="container2">
-            <h1>Weather Information</h1>
+            <h1>Cuaca BMKG</h1>
             <h3>Update Setiap 6 jam</h3>
             <div id="date"></div>
             <div id="location"></div>
@@ -154,8 +154,7 @@
     
         <form id="predictForm" action="{{ url('/AI/predict') }}" method="post">
             @csrf
-            <label for="suhu">Suhu (°C): </label>
-            <input type="text" id="suhu" name="suhu"><br><br>
+            <input type="hidden" id="suhu" name="suhu">
             <label for="curah_hujan">Curah Hujan: </label>
             <select id="curah hujan" name="curah_hujan">
                 <option value="Cerah">Cerah</option>

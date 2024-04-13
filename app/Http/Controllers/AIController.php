@@ -21,12 +21,12 @@ class AIController extends Controller
             'curah_hujan' => 'required|string',
             'pH' => 'required|numeric',
         ]);
-
+    
         // Ambil data dari form
         $suhu = $request->input('suhu');
         $curah_hujan = $request->input('curah_hujan');
         $pH = $request->input('pH');
-
+    
         // Panggil skrip Python
         $command = "C:\Users\ViCtus\AppData\Local\Programs\Python\Python311\python.exe";
         $scriptPath = base_path('app/Scriptpy/AI.py');
@@ -35,19 +35,13 @@ class AIController extends Controller
         
         // Tangani hasil
         $output = $process->getOutput() ?? 'Tidak dapat diprediksi';
-
-        // Pisahkan hasil menjadi baris
-        $lines = explode("\n", $output);
-
+    
         // Ambil hasil prediksi
         $prediction = null;
-        foreach ($lines as $line) {
-            if (strpos($line, "Hasil Prediksi:") !== false) {
-                $prediction = str_replace("Hasil Prediksi:", "", $line);
-                break;
-            }
+        if (strpos($output, "Hasil Prediksi:") !== false) {
+            $prediction = str_replace("Hasil Prediksi:", "", $output);
         }
-
+    
         // Kirim hasil prediksi ke tampilan
         return view('AI.output', [
             'suhu' => $suhu,

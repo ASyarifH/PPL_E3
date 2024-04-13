@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediksi Tanaman Cocok</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
+<html>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-  
-        /* Navbar Style */
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PPL</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Inline CSS for button -->
+    <style>
         .navbar {
             background-color: white;
             border-bottom: 1px solid #ddd;
@@ -39,7 +40,6 @@
 
         .navbar-nav .nav-link {
             margin-right: 10px;
-            color: rgba(0, 0, 0, 0.55);
         }
 
         .navbar-nav .nav-item:first-child .nav-link {
@@ -58,54 +58,16 @@
             border-radius: 5px;
             text-decoration: none;
         }
-  
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-        }
-  
-        li {
-            display: inline;
-            margin: 0 30px;
-        }
-  
-          a {
-            text-decoration: none;
-            color: black;
-        }
-  
-          a:hover {
-            color: #ccc;
-        }
 
-        .container2 {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        #date, #location, #humidity, #temperature {
-            margin: 20px 0;
-            font-size: 18px;
-        }
     </style>
 </head>
+
 <body>
     <main>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand">
-                    <img src="{{ asset('img/SiPetani.png') }}">
+                    <img src="img/SiPetani.png" alt="SiPetani Logo">
                     SiPetani
                 </a>
                 <a href="" class="btn custom-btn d-lg-none ms-auto me-4"></a>
@@ -119,13 +81,13 @@
                             <a class="nav-link click-scroll" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="/artikel">Artikel</a>
+                            <a class="nav-link click-scroll" href="artikel">Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="/diskusi">Diskusi</a>
+                            <a class="nav-link click-scroll" href="diskusi">Diskusi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="/AI">Prediksi Tanam</a>
+                            <a class="nav-link click-scroll" href="AI">Prediksi Tanam</a>
                         </li>
                     </ul>
                     <!-- Button Login -->
@@ -134,11 +96,11 @@
             </div>
         </nav>
     </main>
-
     @yield('content')
+    <script>
+        
+    </script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

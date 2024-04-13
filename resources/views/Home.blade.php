@@ -132,10 +132,10 @@
                             <a class="nav-link click-scroll" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="Artikel">Artikel</a>
+                            <a class="nav-link click-scroll" href="artikel">Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="Diskusi">Diskusi</a>
+                            <a class="nav-link click-scroll" href="diskusi">Diskusi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="AI">Prediksi Tanam</a>

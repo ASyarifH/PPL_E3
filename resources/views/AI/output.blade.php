@@ -3,10 +3,14 @@
 @section('content')
     <div class="container">
         <div class="container2">
-            <h2>Inputan</h2>
-            <p>Suhu: {{ $suhu }}</p>
-            <p>Curah Hujan: {{ $curah_hujan }}</p>
-            <p>Tingkat Keasaman tanah (pH): {{ $ph }}</p>
+            <h2>Hasil Prediksi</h2>
+            <p>Inputan:</p>
+            <ul>
+                <li>Suhu: {{ $suhu }}</li>
+                <li>Curah Hujan: {{ $curah_hujan }}</li>
+                <li>Tingkat pH Tanah: {{ $ph }}</li>
+            </ul>
+            <br></br>
             <h2>Prediksi</h2>
             <p>{{ $prediction }}</p>
         </div>
