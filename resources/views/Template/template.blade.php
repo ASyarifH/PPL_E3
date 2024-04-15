@@ -128,8 +128,6 @@
                             <a class="nav-link click-scroll" href="/AI">Prediksi Tanam</a>
                         </li>
                     </ul>
-                    <!-- Button Login -->
-                    <a href="/login" class="login-btn btn custom-btn d-lg-block d-none">Login<span class="login-icon bi bi-arrow-right"></span></a>
                 </div>
             </div>
         </nav>

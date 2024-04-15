@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
     ];
     protected $routeMiddleware = [
         // other middlewares...
-        'checklogin' => \App\Http\Middleware\CheckLogin::class,
+        'redirect.admin' => \App\Http\Middleware\RedirectIfAdmin::class,
+        'redirect.petani' => \App\Http\Middleware\RedirectIfPetani::class,
     ];
 }

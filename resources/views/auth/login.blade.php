@@ -1,5 +1,5 @@
 <!-- resources/views/auth/login.blade.php -->
-@extends('Template.template')
+@extends('Template.template4')
 
 @section('content')
 @if(session()->has('success'))

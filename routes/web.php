@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AIController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DiskusiController;
@@ -21,34 +21,23 @@ Route::get('/', function () {
     return view('Home');
 });
 
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LoginController::class, 'logout']);
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
-Route::get('/AI', [AIController::class, 'index']);
-Route::post('/AI/predict', [AIController::class, 'predict']);
-Route::get('/artikel', [ArtikelController::class, 'index']);
-Route::get('/diskusi', [DiskusiController::class, 'index']);
+// Authentication Routes
+Route::get('register', [AuthController::class, 'showRegistrationForm'])->name('register')->middleware('guest');
+Route::post('register', [AuthController::class, 'register']);
 
-// Apply CheckLogin middleware to routes that require authentication
-Route::middleware(['auth'])->group(function () {
-    Route::get('/Dashboard', function () {
-        return view('Dashboard');
-    });
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('login', [AuthController::class, 'login']);
 
-    // Routes Check login bila masih tamu dipaksa ke halaman login
-    // Route::middleware(['checklogin'])->group(function () {
-    //     Route::get('/Diskusi', function () {
-    //         return view('Diskusi');
-    //     });
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-        // Route::get('/AI', function () {
-        //     return view('AI');
-        // });
+// Authenticated Routes
+Route::middleware('auth')->group(function () {
+    Route::get('dashboardA', [DashboardController::class, 'adminDashboard'])->name('Dashboardadmin')->middleware('redirect.admin');
+    Route::get('dashboardP', [DashboardController::class, 'petaniDashboard'])->name('Dashboardpetani')->middleware('redirect.petani');
 
-        // Route::get('/Artikel', function () {
-        //     return view('Artikel');
-        // });
-    // });
+    Route::get('/AI', [AIController::class, 'index']);
+    Route::post('/AI/predict', [AIController::class, 'predict']);
+
+    Route::get('/artikel', [ArtikelController::class, 'index']);
+    Route::get('/diskusi', [DiskusiController::class, 'index']);
 });

@@ -1,4 +1,4 @@
-@extends('Template.template')
+@extends('Template.template4')
 
 @section('content')
 @if(session()->has('success'))
@@ -91,11 +91,11 @@
             <p>Register your account to get started</p>
           </div>
           <div>
-            <form action="{{ route('register') }}" method="post">
+            <form method="POST" action="{{ route('register') }}">
               @csrf
               <div class="login-form">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" class="form-control" id="username" placeholder="Username" autofocus required>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Username" autofocus required>
                 <br />
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
