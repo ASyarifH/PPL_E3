@@ -49,15 +49,6 @@
             margin-right: 50px;
         }
 
-        .login-btn {
-            background-color: #447b0d;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
     </style>
 </head>
 

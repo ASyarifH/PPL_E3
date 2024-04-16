@@ -10,39 +10,32 @@
     <link href="css/bootstrap-icons.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+                .navbar {
+            top: 0; /* Memastikan navbar berada di bagian atas halaman */
+            width: 100%; /* Melebarkan navbar untuk menutupi seluruh lebar halaman */
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-  
-          body {
-            font-family: Arial, sans-serif;
-        }
-  
-        /* Navbar Style */
-        .navbar {
-            background-color: white;
-            border-bottom: 1px solid #ddd;
-            position: relative;
-            top: 0;
-            z-index: 0;
-        }
-
+        
         .navbar-brand {
             display: flex;
             align-items: center;
         }
 
         .navbar-brand img {
-            width: 50px;
+            width: 150px;
             height: auto;
             margin-right: 15px;
+        }
+
+        .navbar-nav .nav-link {
+            margin-right: 10px;
+        }
+
+        .navbar-nav .nav-item:first-child .nav-link {
+            padding-right: 10px;
+        }
+
+        .navbar-nav .nav-link:last-child {
+            margin-right: 50px;
         }
 
         .navbar-nav .nav-link {
@@ -125,16 +118,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="dashboardP">Home</a>
+                            <a class="nav-link click-scroll" href="dashboardP"><strong>Home</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="/artikelP">Artikel</a>
+                            <a class="nav-link click-scroll" href="/artikelP"><strong>Artikel</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="/diskusiP">Diskusi</a>
+                            <a class="nav-link click-scroll" href="/diskusiP"><strong>Diskusi</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="AI">Prediksi Tanam</a>
+                            <a class="nav-link click-scroll" href="AI"><strong>Prediksi Tanam</strong></a>
                         </li>
                     </ul>
                     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
