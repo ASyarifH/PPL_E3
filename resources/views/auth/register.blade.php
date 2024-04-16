@@ -1,4 +1,4 @@
-@extends('Template.template4')
+@extends('Template.templateLR')
 
 @section('content')
 @if(session()->has('success'))
@@ -38,11 +38,11 @@
 
     .login-right {
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 50vw;
-      background-color: #f8f9fa;
+      top: 50%;
+      right: 10%;
+      transform: translateY(-50%);
+      width: 45%;
+      max-width: 600px;
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
@@ -50,8 +50,8 @@
     }
 
     .login-right img {
-      width: 100%;
-      height: 100vh;
+      max-width: 100%;
+      height: auto;
       object-fit: cover;
       object-position: center top;
     }
@@ -116,7 +116,7 @@
     </div>
 
     <div class="login-right">
-      <img src="img/Login.jpeg" alt="Background Image"/>
+      <img src="img/Login.png" alt="Background Image"/>
     </div>
   </div>
 </section>

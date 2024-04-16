@@ -1,5 +1,5 @@
 <!-- resources/views/auth/login.blade.php -->
-@extends('Template.template4')
+@extends('Template.templateLR')
 
 @section('content')
 @if(session()->has('success'))
@@ -15,8 +15,6 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 @endif
-
-
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -41,11 +39,11 @@
 
       .login-right {
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 50vw;
-        background-color: #f8f9fa;
+        top: 50%;
+        right: 10%;
+        transform: translateY(-50%);
+        width: 45%;
+        max-width: 600px;
         display: flex;
         align-items: flex-end;
         justify-content: flex-end;
@@ -53,11 +51,13 @@
       }
 
       .login-right img {
-        width: 100%;
-        height: 100vh;
+        max-width: 100%;
+        height: auto;
         object-fit: cover;
         object-position: center top;
       }
+
+      
       .login-form label {
       margin-bottom: -5px; /* Mengurangi jarak bawah antara label dan input */
       }
@@ -98,11 +98,6 @@
                   <div class="login-form">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control @error('email')is-invalid @enderror" id="floatingInput" id="email" placeholder="Email" autofocus required>
-                    @error('email')
-                      <div class="invalid-feedback">
-                          {{$message}}
-                       </div>
-                    @enderror
                     <br />
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
@@ -119,7 +114,7 @@
         </div>
 
         <div class="login-right">
-          <img src="img/Login.jpeg" alt="Background Image"/>
+          <img src="img/Login.png" alt="Background Image"/>
         </div>
     </section>
     <script

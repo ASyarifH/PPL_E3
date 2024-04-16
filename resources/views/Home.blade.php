@@ -16,38 +16,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Inline CSS for button -->
+    <link href="css/style.css" rel="stylesheet">
     <style>
         .navbar {
-            background-color: white;
-            border-bottom: 1px solid #ddd;
-            position: relative;
-            top: 0;
-            z-index: 0;
+            position: fixed; /* Menetapkan navbar di posisi tetap */
+            top: 0; /* Memastikan navbar berada di bagian atas halaman */
+            width: 100%; /* Melebarkan navbar untuk menutupi seluruh lebar halaman */
         }
-
+        
         .navbar-brand {
             display: flex;
             align-items: center;
         }
 
         .navbar-brand img {
-            width: 50px;
+            width: 150px;
             height: auto;
             margin-right: 15px;
         }
-
-        .navbar-nav .nav-link {
-            margin-right: 10px;
-        }
-
-        .navbar-nav .nav-item:first-child .nav-link {
-            padding-right: 10px;
-        }
-
-        .navbar-nav .nav-link:last-child {
-            margin-right: 50px;
+        .register-btn {
+            background-color: transparent;
+            color: #447b0d; /* Ubah warna teks menjadi hijau */
+            border: 2px solid #447b0d; /* Tambahkan garis tepi hijau */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-right: 10px; /* Tambahkan jarak antara tombol login dan tombol register */
         }
 
         .login-btn {
@@ -59,57 +53,31 @@
             text-decoration: none;
         }
 
-        .Home-right {
-            position: absolute;
-            top: 75px;
-            right: 200px;
-            bottom: 75px;
-            width: 30%;
-            background-color: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            z-index: 0;
+        .free-text{
+            color:#4B4D26;
+            font-size: 64px;
+            margin-bottom: 120px;
         }
 
-        .Home-right img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+        .judul-about,
+        .judul-alasan {
+            background-color: #4B4D26;
+            position: relative;
+            color: white;
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
         }
 
-        .header {
-            text-align: left;
-            margin: auto;
-            max-width: 600px;
-            padding: 20px;
-            position: absolute;
-            top: 50%;
-            left: 200px;
-            transform: translateY(-50%);
-            z-index: 0; /* Mengatur posisi z-index header */
+        .site-footer{
+            color: #729043;
+            text-align: center;
+            bottom: 0;
+            width: 100%;
+            padding: 10px 0;
+            background-color: #f3f3f3;
         }
 
-        @media screen and (max-width: 1280px) {
-            .header {
-                position: relative;
-                top: 0;
-                left: 0;
-                text-align: left;
-                transform: translateY(0);
-                padding-top: 100px; /* Tambahkan padding atas saat layar kecil */
-                z-index: 0; /* Mengatur posisi z-index header */
-            }
-
-            .Home-right {
-                display: none;
-            }
-
-            body {
-                padding-top: 0px;
-            }
-        }
     </style>
 </head>
 
@@ -119,7 +87,6 @@
             <div class="container">
                 <a class="navbar-brand">
                     <img src="img/SiPetani.png" alt="SiPetani Logo">
-                    SiPetani
                 </a>
                 <a href="" class="btn custom-btn d-lg-none ms-auto me-4"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -129,34 +96,101 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="/">Home</a>
+                            <a class="nav-link click-scroll" href="/"><strong>Home</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="artikel">Artikel</a>
+                            <a class="nav-link click-scroll" href="artikel"><strong>Artikel</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="diskusi">Diskusi</a>
+                            <a class="nav-link click-scroll" href="diskusi"><strong>Diskusi</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="AI">Prediksi Tanam</a>
+                            <a class="nav-link click-scroll" href="AI"><strong>Prediksi Tanam</strong></a>
                         </li>
                     </ul>
-                    <!-- Button Login -->
-                    <a href="/login" class="login-btn btn custom-btn d-lg-block d-none">Login<span class="login-icon bi bi-arrow-right"></span></a>
+                        <!-- Button Login -->
+                    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                            <a href="/register" class="register-btn btn custom-btn d-lg-block d-none">Daftar</a>
+                            <a href="/login" class="login-btn btn custom-btn d-lg-block d-none">Login</a>
+                        </ul>
+                    </form>
                 </div>
             </div>
         </nav>
-    </main>
-    <div class="header">
-        <h1>Welcome Back</h1>
-        <p>Merupakan sebuah inovasi sistem informasi berbasis website yang dirancang khusus untuk memberikan solusi kepada para petani dalam menghadapi tantangan waktu tanam</p>
-    </div>
-    <div class="Home-right">
-        <img src="img/Home.png" alt="Home Image" />
-    </div>
-    <footer class="site-footer">
-    </footer>
 
+        <section class="hero-section">
+            <div class="section-overlay"></div>
+            <div class="container d-flex justify-content-center align-items-center">
+                <div class="row">
+                    <div class="col-12 mt-auto mb-5 text-center">
+                        <h1 class="free-text">Waktu tanam ideal, sahabat terbaik para petani!</h1>
+                        <a class="btn custom-btn smoothscroll" href="/register">Gabung Sekarang</a>
+                    </div>
+                    <div class="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">
+                    </div>
+                </div>
+            </div>
+            <div class="video-wrap">
+                <img src="img/Home.png" class="custom-video" alt="Home Image">
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div class="about-text-wrap">
+                            <img src="img/Home2.png" class="about-image img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
+                        <div class="services-info">
+                            <h2 class="judul-about">TENTANG SIPETANI</h2>
+                            <p class="isi-about">SIPETANI merupakan inovasi baru dalam dunia pertanian yang menggabungkan kecerdasan buatan dengan data lingkungan untuk memberikan prediksi tanam yang akurat. Kami berkomitmen untuk membantu petani dengan informasi dan pengetahuan yang mereka butuhkan untuk meningkatkan hasil panen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="artists-section section-padding" id="section_3">
+            <div class="container">
+                <div class="row justify-content-center">
+
+                    <div class="col-12 text-center">
+                        <h2 class="judul-alasan">MENGAPA HARUS PETANI</h1>
+                    </div>
+
+                    <div class="col-lg-5 col-12">
+                        <div class="artists-thumb">
+                            <div class="artists-image-wrap">
+                                <img src="images/crops/rice.jpg"
+                                    class="artists-image img-fluid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-12">
+                        <div class="artists-thumb">
+                            <div class="artists-image-wrap">
+                                <img src="images/crops/cabbage.jpg"
+                                    class="artists-image img-fluid">
+                            </div>
+                        </div>
+
+                        <div class="artists-thumb">
+                            <img src="images/crops/corn.jpg"
+                                class="artists-image img-fluid">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        Copyright @ 2024, SIPETANI
+    </footer>
     <!-- JAVASCRIPT FILES -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -166,7 +200,6 @@
     <script>
         
     </script>
-
 </body>
 
 </html>

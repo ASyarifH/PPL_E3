@@ -16,7 +16,6 @@ https://templatemo.com/tm-583-festava-live
   --section-bg-color: #f0f8ff;
   --custom-btn-bg-color: #ee5007;
   --custom-btn-bg-hover-color: #c01f27;
-  --dark-color: #000000;
   --p-color: #717275;
   --border-color: #7fffd4;
   --link-hover-color: #b22727;
@@ -288,7 +287,7 @@ strong {
   CUSTOM BUTTON               
 -----------------------------------------*/
 .custom-btn {
-  background: var(--custom-btn-bg-color);
+  background: #729043;
   border: 2px solid transparent;
   border-radius: var(--border-radius-large);
   color: var(--white-color);
@@ -359,11 +358,11 @@ strong {
 }
 
 .sticky-wrapper.is-sticky .navbar {
-  background-color: var(--dark-color);
+  background-color: var(--white-color);
 }
 
 .navbar {
-  background: transparent;
+  background: white;
   z-index: 9;
 }
 
@@ -382,7 +381,7 @@ strong {
 
 .navbar-nav .nav-link {
   display: inline-block;
-  color: var(--white-color);
+  color: #729043;
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-normal);
   position: relative;
@@ -503,10 +502,6 @@ strong {
   position: relative;
 }
 
-.about-section p{
-  /* font-weight: bold; */
-}
-
 .about-image {
   border-radius: var(--border-radius-medium);
   display: block;
@@ -580,7 +575,11 @@ strong {
 -----------------------------------------*/
 
 .artists-section{
+background-image: url('../images/about5.jpg');
 background-color: var(--dark-color);
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
 }
 
 .artists-thumb {
@@ -636,225 +635,6 @@ background-color: var(--dark-color);
 .artists-hover hr {
   margin: 1.5rem 0;
 }
-
-/*---------------------------------------
-  SCHEDULE              
------------------------------------------*/
-/* .schedule-section {
-  background-image: url('../images/nainoa-shizuru-unsplash-blur.jpg');
-  background-color: #242424;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.table-responsive {
-  filter: drop-shadow(2px 2px 4px #606060);
-}
-
-.schedule-table {
-  border-radius: var(--border-radius-medium);
-  position: relative;
-  overflow: hidden;
-}
-
-.schedule-table .bg-warning {
-  background: #f0a5a5 !important;
-}
-
-.schedule-table thead th {
-  background-color: var(--secondary-color);
-}
-
-.schedule-table th,
-.schedule-table tr,
-.schedule-table td {
-  border-bottom-color: #363a3e;
-  padding: 30px;
-}
-
-.schedule-table tr:last-child th,
-.schedule-table tr:last-child td {
-  border-bottom-color: transparent;
-}
-
-.schedule-table thead th {
-  border-right: 1px solid #c7460a;
-  border-bottom-color: transparent;
-}
-
-.schedule-table th + td {
-  border-bottom: 0;
-}
-
-.schedule-table thead th:last-child {
-  border-right-color: transparent;
-}
-
-.schedule-table .pop-background-image {
-  background-image: url('../images/artists/joecalih-UmTZqmMvQcw-unsplash.jpg');
-}
-
-.schedule-table .rock-background-image {
-  background-image: url('../images/artists/abstral-official-bdlMO9z5yco-unsplash.jpg');
-}
-
-.schedule-table .country-background-image {
-  background-image: url('../images/artists/soundtrap-rAT6FJ6wltE-unsplash.jpg');
-}
-
-.table-background-image-wrap {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  box-shadow: none;
-  position: relative;
-}
-
-.schedule-table h3,
-.schedule-table p {
-  color: var(--white-color);
-  position: relative;
-  z-index: 2;
-} */
-
-
-/* articles */
-/* .gtco-news{
-  background-image: url('../images/about5.jpg');
-  background-color: #242424;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.gtco-news {
-  padding: 60px 0;
-}
-
-.gtco-news .container h2 {
-  text-align: center;
-}
-
-.owl-carousel2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.owl-carousel2 .card {
-  width: 300px; 
-  margin: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.owl-carousel2 .card-img-top {
-  height: 200px; 
-  object-fit: cover;
-}
-
-.owl-carousel2 .card-body {
-  padding: 20px; 
-}
-
-.owl-carousel2 .card-title {
-  margin-top: 10px; 
-  font-size: 18px; 
-}
-
-.owl-carousel2 .card-text {
-  margin-bottom: 10px; 
-  font-size: 14px; 
-}
-
-.owl-carousel2 .btn {
-  margin-top: auto; 
-  font-size: 14px; 
-} */
-/* 
-.gtco-news {
-  background-image: url('../images/nainoa-shizuru-unsplash-blur.jpg');
-  background-color: #242424;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding: 60px 0;
-}
-
-.gtco-news .container {
-  margin: 0 auto;
-  max-width: 1170px;
-  padding: 0 15px;
-}
-
-.gtco-news .container h2 {
-  text-align: center;
-  color: #ffffff;
-}
-
-.gtco-news .row.ml-0,
-.gtco-news .row.mr-0 {
-  margin-left: -15px;
-  margin-right: -15px;
-}
-
-.gtco-news .card {
-  position: relative;
-  overflow: hidden;
-}
-
-.gtco-news .card-img {
-  width: 100%;
-  height: auto;
-}
-
-.gtco-news .card .card-img-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gtco-news .card:hover .card-img-overlay {
-  opacity: 1;
-}
-
-.gtco-news .card .card-img-overlay p,
-.gtco-news .card .card-img-overlay h2 {
-  margin-bottom: 10px;
-}
-
-.gtco-news .card .card-img-overlay hr {
-  border-top: 1px solid #ffffff;
-  width: 50%;
-  margin: 0 auto;
-  margin-bottom: 10px;
-}
-
-.gtco-news .card .card-img-overlay a.btn {
-  display: inline-block;
-  padding: 8px 20px;
-  background-color: #ffffff;
-  color: #242424;
-  text-decoration: none;
-  border-radius: 20px;
-  font-weight: bold;
-}
-
-.gtco-news .card .card-img-overlay a.btn:hover {
-  background-color: #ebebeb;
-} */
-
 
 /*---------------------------------------
   PRICING              

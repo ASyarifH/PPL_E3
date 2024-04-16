@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 
 class DiskusiController extends Controller
 {
-    public function index()
+    public function DiskusiAdmin()
     {
-        return view('diskusi.index');
+        return view('diskusi.indexA');
+    }
+    public function DiskusiPetani()
+    {
+        return view('diskusi.indexP');
     }
 }

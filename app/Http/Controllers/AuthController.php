@@ -62,7 +62,7 @@ class AuthController extends Controller
         }
     
         // Jika gagal, kembali ke halaman login dengan pesan error
-        return redirect()->route('login')->with('error', 'Invalid credentials');
+        return redirect()->route('login')->with('error', 'Gagal, Silahkan masukkan Informasi yang benar.');
     }
 
     public function logout(Request $request)
@@ -73,6 +73,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect ('/login');
+        return redirect ('/');
     }
 }

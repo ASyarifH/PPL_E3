@@ -1,1 +1,0 @@
-@extends('Template.template3')

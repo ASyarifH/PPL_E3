@@ -94,8 +94,8 @@
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         h1 {
@@ -128,10 +128,10 @@
                             <a class="nav-link click-scroll" href="dashboardP">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="artikel">Artikel</a>
+                            <a class="nav-link click-scroll" href="/artikelP">Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="diskusi">Diskusi</a>
+                            <a class="nav-link click-scroll" href="/diskusiP">Diskusi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="AI">Prediksi Tanam</a>

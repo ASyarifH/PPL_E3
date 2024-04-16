@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 
 class ArtikelController extends Controller
 {
-    public function index()
+    public function ArtikelAdmin()
     {
-        return view('artikel.index');
+        return view('artikel.indexA');
+    }
+    public function ArtikelPetani()
+    {
+        return view('artikel.indexP');
     }
 }
