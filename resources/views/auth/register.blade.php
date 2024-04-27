@@ -8,14 +8,6 @@
   </div>
 @endif
 
-@if(session()->has('registerError'))
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    {{session('registerError')}}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-@endif
-
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -88,23 +80,36 @@
         <div class="col-6">
           <div class="header">
             <h1>Welcome to Our Website</h1>
-            <p>Register your account to get started</p>
+            <p>Register Akunmu Untuk Merasakan Fitur Web Kami</p>
           </div>
+                @if ($errors->has('name'))
+                  <div style="color: red;">
+                    <strong></strong> Username, Email dan Password harus diisi.
+                  </div>
+                @elseif ($errors->has('email'))
+                  <div style="color: red;">
+                    <strong></strong> Username, Email dan Password harus diisi.
+                  </div>
+                @elseif ($errors->has('password'))
+                  <div style="color: red;">
+                    <strong></strong> Username, Email dan Password harus diisi.
+                  </div>
+                @endif
           <div>
             <form method="POST" action="{{ route('register') }}">
               @csrf
               <div class="login-form">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Username" autofocus required>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Username" autofocus>
                 <br />
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
                 <br />
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                 <br />
                 <label for="password_confirmation" class="form-label">Confirm Password</label>
-                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password" required>
+                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password">
                 <br />
                 <button class="register" type="submit">Register</button>
                 <p>Already have an account? <a href="{{ url('/login') }}">Log in</a></p>

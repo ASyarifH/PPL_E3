@@ -102,16 +102,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="/"><strong>Home</strong></a>
+                            <a class="nav-link click-scroll" href="/dashboardP"><strong>Home</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="artikelP"><strong>Artikel</strong></a>
+                            <a class="nav-link click-scroll" href="/artikelP"><strong>Artikel</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="diskusiP"><strong>Diskusi</strong></a>
+                            <a class="nav-link click-scroll" href="/diskusiP"><strong>Diskusi</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="AI"><strong>Prediksi Tanam</strong></a>
+                            <a class="nav-link click-scroll" href="/AI"><strong>Prediksi Tanam</strong></a>
                         </li>
                     </ul>
                     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
@@ -121,7 +121,7 @@
                                 <i class="fas fa-user fa-fw"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="???">Akun</a></li>
+                                <li><a class="dropdown-item" href="/profile">Akun</a></li>
                                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>

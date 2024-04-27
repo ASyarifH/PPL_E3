@@ -30,9 +30,8 @@ model = RandomForestClassifier()
 model.fit(X, y)
 
 def predict_crop(suhu, curah_hujan, pH):
-    # Cek apakah nilai curah_hujan merupakan string yang sudah ada dalam data
     if curah_hujan in label_encoder.classes_:
-        # Jika iya, lakukan label encoding
+        # lakukan label encoding
         encoded_curah_hujan = label_encoder.transform([curah_hujan])[0]
         # Melakukan prediksi
         prediction = model.predict([[suhu, pH] + [1 if col == f'Curah Hujan_{encoded_curah_hujan}' else 0 for col in X.columns[2:]]])

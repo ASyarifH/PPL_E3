@@ -27,6 +27,38 @@ class AIController extends Controller
         $curah_hujan = $request->input('curah_hujan');
         $pH = $request->input('pH');
     
+        if (empty($curah_hujan) || empty($pH)) {
+            return redirect()->back()->withInput()->withErrors('Data curah hujan dan data pH tanah tidak boleh kosong');
+        }
+
+
+        if ($curah_hujan === "Hujan Petir" and $pH < 5.5 || $pH > 7.5) {
+            return view('AI.output', [
+                'suhu' => $suhu,
+                'curah_hujan' => $curah_hujan,
+                'ph' => $pH,
+                'prediction' => 'Tidak dapat diprediksi: Curah Hujan dan pH tanah tidak mendukung untuk penanaman'
+            ]);
+        }    
+        
+        if ($pH < 5.5 || $pH > 7.5) {
+            return view('AI.output', [
+                'suhu' => $suhu,
+                'curah_hujan' => $curah_hujan,
+                'ph' => $pH,
+                'prediction' => 'Tidak dapat diprediksi: Nilai pH terlalu rendah atau tinggi untuk melakukan penanaman'
+            ]);
+        }
+        
+        if ($curah_hujan === "Hujan Petir") {
+            return view('AI.output', [
+                'suhu' => $suhu,
+                'curah_hujan' => $curah_hujan,
+                'ph' => $pH,
+                'prediction' => 'Tidak dapat diprediksi: Curah Hujan ini termasuk badai yang memungkinkan untuk merusak tanaman'
+            ]);
+        }    
+        
         // Panggil skrip Python
         $command = "C:\Users\ViCtus\AppData\Local\Programs\Python\Python311\python.exe";
         $scriptPath = base_path('app/Scriptpy/AI.py');

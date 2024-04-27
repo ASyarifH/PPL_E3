@@ -4,29 +4,17 @@
 @section('content')
 @if(session()->has('success'))
   <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{session('success')}}
+    {{ session('success') }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 @endif
 
-@if(session()->has('loginError'))
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    {{session('loginError')}}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-@endif
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script src="script.js"></script>
-
-
-
     <link rel="stylesheet" href="style.css"/>
-
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -90,17 +78,31 @@
             <div class="col-6">
               <div class="header">
                 <h1>Selamat Datang</h1>
-                <p>Enter your Credentials to access your account</p>
-              </div>
+                <p>Masukkan Akun Pribadi Anda</p>
+                @if ($errors->has('loginError'))
+                  <div style="color: red;">
+                    {{ $errors->first('loginError') }}
+                  </div>
+                @endif
+                @if ($errors->has('email'))
+                  <div style="color: red;">
+                    <strong></strong> Email dan password harus diisi.
+                  </div>
+                @elseif ($errors->has('password'))
+                  <div style="color: red;">
+                    <strong></strong> Email dan password harus diisi.
+                  </div>
+                @endif
               <div>
                 <form action="/login" method="post">
                 @csrf
                   <div class="login-form">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control @error('email')is-invalid @enderror" id="floatingInput" id="email" placeholder="Email" autofocus required>
+                    <input type="email" name="email" class="form-control @error('email')is-invalid @enderror" id="floatingInput" id="email" placeholder="Email" autofocus>
                     <br />
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                    <p><a href="{{ url('/forgot-password') }}">Forgot Password?</a></p>
  
                     <a href="#" class="text-decoration none text-center"></a>
                     <button class="signin">Log In</button>

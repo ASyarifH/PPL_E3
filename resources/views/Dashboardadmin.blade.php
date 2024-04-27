@@ -95,7 +95,7 @@
                                 <i class="fas fa-user fa-fw"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="???">Akun</a></li>
+                                <li><a class="dropdown-item" href="/profileA">Akun</a></li>
                                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>

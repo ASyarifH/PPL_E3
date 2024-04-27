@@ -14,9 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
     <!-- Inline CSS for button -->
@@ -57,7 +57,7 @@
     <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand">
-                    <img src="img/SiPetani.png" alt="SiPetani Logo">
+                    <img src="{{ asset('img/SiPetani.png') }}" alt="SiPetani Logo">
                 </a>
                 <a href="" class="btn custom-btn d-lg-none ms-auto me-4"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -76,7 +76,7 @@
                             <a class="nav-link click-scroll" href="/diskusiP"><strong>Diskusi</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="AI"><strong>Prediksi Tanam</strong></a>
+                            <a class="nav-link click-scroll" href="/AI"><strong>Prediksi Tanam</strong></a>
                         </li>
                     </ul>
                     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
@@ -86,7 +86,7 @@
                                 <i class="fas fa-user fa-fw"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="???">Akun</a></li>
+                                <li><a class="dropdown-item" href="/profileP">Akun</a></li>
                                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>

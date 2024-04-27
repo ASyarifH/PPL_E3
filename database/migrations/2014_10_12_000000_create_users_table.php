@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('role', ['admin', 'petani'])->default('petani');
             $table->timestamps();
+
         });
     }
 
