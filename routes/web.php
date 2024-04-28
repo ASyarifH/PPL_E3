@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AIController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DiskusiController;
+use App\Http\Controllers\JawabanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +56,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/artikelP', [ArtikelController::class, 'ArtikelPetani']);
 
     Route::resource('diskusi', DiskusiController::class);
+    Route::resource('diskusi/{diskusi}/jawaban', JawabanController::class);
     Route::get('/diskusiA', [DiskusiController::class, 'DiskusiAdmin']);
     Route::get('/diskusiP', [DiskusiController::class, 'DiskusiPetani'])->name('diskusiP');
-
+    Route::get('/Daftar-Pertanyaan', [DiskusiController::class, 'pertanyaansaya'])->name('diskusi.pertanyaansaya');
 });

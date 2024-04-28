@@ -14,7 +14,7 @@ class Diskusi extends Model
     protected $table = 'diskusi'; // Tentukan nama tabel sesuai dengan yang sebenarnya
     
     protected $fillable = [
-        'title', 'content', 'slug', 'user_id', // tambahkan 'title' ke dalam $fillable
+        'pertanyaan', 'jawaban', 'slug', 'user_id', // tambahkan 'title' ke dalam $fillable
     ];
 
     public function author()
@@ -22,9 +22,9 @@ class Diskusi extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function author_id()
+    public function jawaban()
     {
-        return User::where('user_id', 'name');
+        return $this->hasMany(Jawaban::class);
     }
 
     public function getRouteKeyName()

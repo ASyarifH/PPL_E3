@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container d-flex justify-content-end mb-2">
-    <a href="{{ route('diskusi.create')}}" class="btn btn-success"> Tambahkan Diskusi</a>
+    <a href="{{ route('diskusi.pertanyaansaya') }}" style='margin-right:16px' class="btn btn-success">Daftar Pertanyaan</a>
+    <a href="{{ route('diskusi.create') }}" class="btn btn-success">Tambahkan Diskusi</a>
 </div>
 
 @foreach($diskusi as $diskusi)
@@ -19,12 +20,7 @@
 
 
             <div class="card-body">
-                {{$diskusi->title}}
-
-                <hr>
-                
-                {!!$diskusi->content!!}
-
+                {!!$diskusi->pertanyaan!!}
             </div>
             <div class="d-flex justify-content-end mb-2">
                 <a href="{{ route('diskusi.show', $diskusi->slug) }}" class="btn btn-success">Lihat</a>

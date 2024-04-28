@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diskusi;
+use App\Models\Jawaban;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +21,18 @@ class DiskusiController extends Controller
         return view('diskusi.indexP', compact('diskusi')); // Kirim data diskusi ke view
     }
 
+    public function pertanyaansaya()
+    {
+        // Ambil semua data pertanyaan yang dimiliki oleh pengguna yang sedang login
+        $pertanyaansaya = Diskusi::where('user_id', Auth::id())->get();
+        return view('diskusi.pertanyaansaya', compact('pertanyaansaya'));
+    }
+
     public function create()
     {
         return view('diskusi.create');
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -32,18 +41,16 @@ class DiskusiController extends Controller
     {
         // Validasi manual
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
+            'pertanyaan' => 'required',
         ]);
     
         // Membuat slug dengan tambahan timestamp untuk memastikan keunikan
-        $slug = Str::slug($request->title) . '-' . now()->timestamp;
+        $slug = Str::slug($request->pertanyaan) . '-' . now()->timestamp;
     
         // Membuat diskusi
         Diskusi::create([
-            'title' => $request->title,
+            'pertanyaan' => $request->pertanyaan,
             'slug' => $slug,
-            'content' => $request->content,
             'user_id' => Auth::id(),
         ]);
     
@@ -53,7 +60,7 @@ class DiskusiController extends Controller
     public function show($slug)
     {
         $diskusi = Diskusi::where('slug', $slug)->firstOrFail();
-        return view('diskusi.show', ['diskusi' => $diskusi]);
+        return view('diskusi.show', compact('diskusi'));
     }
 
     /**

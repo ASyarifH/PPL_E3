@@ -10,15 +10,10 @@
         <form action="{{ route ('diskusi.store')}}" method="POST">
             @csrf
                 <div class="form-group">
-                    <label for="title">judul</label>
+                    <label for="pertanyaan">pertanyaan</label>
 
-                    <input type="text" class="form-control" name="title" value="">
-                </div>
-                <div class="form-group">
-                    <label for="content">content</label>
-
-                    <input id="content" type="hidden" name="content">
-                    <trix-editor input="content"></trix-editor>
+                    <input id="pertanyaan" type="hidden" name="pertanyaan">
+                    <trix-editor input="pertanyaan"></trix-editor>
 
                 </div>
             <br/>
