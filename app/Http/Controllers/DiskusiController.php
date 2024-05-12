@@ -17,8 +17,8 @@ class DiskusiController extends Controller
     }
     public function DiskusiPetani()
     {
-        $diskusi = Diskusi::all(); // Ambil semua data diskusi
-        return view('diskusi.indexP', compact('diskusi')); // Kirim data diskusi ke view
+        $diskusi = Diskusi::all();
+        return view('diskusi.indexP', compact('diskusi'));
     }
 
     public function pertanyaansaya()
@@ -43,8 +43,7 @@ class DiskusiController extends Controller
         $request->validate([
             'pertanyaan' => 'required',
         ]);
-    
-        // Membuat slug dengan tambahan timestamp untuk memastikan keunikan
+
         $slug = Str::slug($request->pertanyaan) . '-' . now()->timestamp;
     
         // Membuat diskusi
@@ -57,10 +56,16 @@ class DiskusiController extends Controller
         return redirect()->route('diskusiP');
     }
 
-    public function show($slug)
+    public function showAdmin($slug)
     {
         $diskusi = Diskusi::where('slug', $slug)->firstOrFail();
-        return view('diskusi.show', compact('diskusi'));
+        return view('diskusi.showA', compact('diskusi'));
+    }
+    
+    public function showPetani($slug)
+    {
+        $diskusi = Diskusi::where('slug', $slug)->firstOrFail();
+        return view('diskusi.showP', compact('diskusi'));
     }
 
     /**
@@ -71,9 +76,6 @@ class DiskusiController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
@@ -86,4 +88,11 @@ class DiskusiController extends Controller
     {
         //
     }
+
 }
+
+// if search()
+// {
+//     $customers = Customer::where('full_name', 'LIKE', "%{$search}%")->get();
+//     return($costumer)
+// }

@@ -40,4 +40,5 @@ class User extends Authenticatable
         // Update data pengguna
         return $this->update($data);
     }
+
 }

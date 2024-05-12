@@ -2,9 +2,9 @@
 
 @section('content')
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.0.0/trix.css">
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
 <div class="container card">
-    <div class="card-header">Tambahkan Diskusi</div>
+    <div class="card-header" style="background-color:transparent">Tambahkan Diskusi</div>
 
     <div class="card-body">
         <form action="{{ route ('diskusi.store')}}" method="POST">
@@ -22,5 +22,5 @@
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.0.0/trix.js"></script>
+<script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
 @endsection

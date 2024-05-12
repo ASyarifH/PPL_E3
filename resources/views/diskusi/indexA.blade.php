@@ -2,28 +2,20 @@
 
 @section('content')
 
-    @foreach($diskusi as $diskusi)
-        <div class="container card">
-            <div class="card-header">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <img width="40px" height="40px" style="border-radius: 50%" src="{{ asset('images/user.png') }}" alt="">
-                        <span>{{ $diskusi->author->name }}</span>
-
-                    </div>
+@foreach($diskusi as $diskusi)
+    <a href="{{ route('diskusi.showA', $diskusi->slug) }}" class="container card mb-3" style="color: black; text-decoration: none;">
+        <div class="card-body">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <img width="40px" height="40px" style="border-radius: 50%" src="{{ asset('images/user.png') }}" alt="">
+                    <span>{{ $diskusi->author->name }}</span>
                 </div>
             </div>
-
-
-            <div class="card-body">
-                {!!$diskusi->pertanyaan!!}
-            </div>
-            <div class="d-flex justify-content-end mb-2">
-                <a href="{{ route('diskusi.show', $diskusi->slug) }}" class="btn btn-success">Lihat</a>
-            </div>
+            <hr>
+            <p class="card-text">{!! $diskusi->pertanyaan !!}</p>
         </div>
-        <br/>
-    @endforeach
+    </a>
+@endforeach
 
 
 @endsection

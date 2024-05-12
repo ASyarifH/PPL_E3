@@ -11,10 +11,10 @@ class Diskusi extends Model
      *
      * @var string
      */
-    protected $table = 'diskusi'; // Tentukan nama tabel sesuai dengan yang sebenarnya
+    protected $table = 'diskusi';
     
     protected $fillable = [
-        'pertanyaan', 'jawaban', 'slug', 'user_id', // tambahkan 'title' ke dalam $fillable
+        'pertanyaan', 'slug', 'user_id', // tambahkan 'title' ke dalam $fillable
     ];
 
     public function author()

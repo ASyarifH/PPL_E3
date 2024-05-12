@@ -42,7 +42,7 @@ class JawabanController extends Controller
             'diskusi_id' => $diskusi->id,
         ]);
 
-        return redirect()->route('diskusi.show', $slug);
+        return back();
     }
 
     public function show(string $id)
@@ -61,9 +61,19 @@ class JawabanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Jawaban $jawaban)
     {
-        //
+        // Validasi manual
+        $request->validate([
+            'jawaban' => 'required',
+        ]);
+    
+        // Perbarui jawaban
+        $jawaban->update([
+            'jawaban' => $request->jawaban,
+        ]);
+    
+        return back();
     }
 
     /**

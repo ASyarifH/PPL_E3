@@ -52,12 +52,20 @@ Route::middleware('auth')->group(function () {
     Route::post('/AI/predict', [AIController::class, 'predict']);
 
     //Rute Setelah Login
-    Route::get('/artikelA', [ArtikelController::class, 'ArtikelAdmin']);
+    Route::resource('artikel', ArtikelController::class);
+    Route::get('/artikelA', [ArtikelController::class, 'ArtikelAdmin'])->name('artikelA');
     Route::get('/artikelP', [ArtikelController::class, 'ArtikelPetani']);
-
+    Route::post('/artikelA/upload', [ArtikelController::class, 'upload'])->name('ckeditor.upload');
+    Route::get('artikel/{id}/showAdmin', [ArtikelController::class, 'showAdmin'])->name('artikel.showAdmin');
+    Route::get('artikel/{id}/showPetani', [ArtikelController::class, 'showPetani'])->name('artikel.showPetani');
+    Route::post('/artikel/{id}/toggle-bookmark', [ArtikelController::class, 'toggleBookmark'])->name('artikel.toggleBookmark');
+    
     Route::resource('diskusi', DiskusiController::class);
     Route::resource('diskusi/{diskusi}/jawaban', JawabanController::class);
+    Route::put('jawaban/{jawaban}', [JawabanController::class, 'update'])->name('jawaban.update');
     Route::get('/diskusiA', [DiskusiController::class, 'DiskusiAdmin']);
     Route::get('/diskusiP', [DiskusiController::class, 'DiskusiPetani'])->name('diskusiP');
+    Route::get('/diskusi/showA/{slug}', [DiskusiController::class, 'showAdmin'])->name('diskusi.showA');
+    Route::get('/diskusi/showP/{slug}', [DiskusiController::class, 'showPetani'])->name('diskusi.showP');
     Route::get('/Daftar-Pertanyaan', [DiskusiController::class, 'pertanyaansaya'])->name('diskusi.pertanyaansaya');
 });

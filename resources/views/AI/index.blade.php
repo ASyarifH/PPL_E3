@@ -51,12 +51,12 @@
         }
 
         .container2 {
-            max-width: 600px;
+            max-width: 80%;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
             text-align: center;
         }
 
@@ -75,36 +75,43 @@
     <main>
         <div class="container2">
             <h2>Cuaca BMKG</h2>
-            <h3>Update Setiap 6 jam</h3>
             <div id="date"></div>
             <div id="location"></div>
             <div id="prediction"></div>
             <div id="humidity"></div>
             <div id="temperature"></div>
-        <h2>Prediksi Kecocokan Tanam</h2>
+            <div class="container2">
+            <h2>Prediksi Kecocokan Tanam</h2>
             @if ($errors->any())
                 <div style="color: red;">
-                    <strong></strong> Data curah hujan dan data ph tanah tidak boleh kosong
+                    <strong></strong> Data tidak boleh kosong
                 </div>
                 <br>
             @endif
-        <form id="predictForm" action="{{ url('/AI/predict') }}" method="post">
-            @csrf
-            <input type="hidden" id="suhu" name="suhu">
-            <label for="curah_hujan">Curah Hujan: </label>
-            <select id="curah hujan" name="curah_hujan">
-                <option value="Cerah">Cerah</option>
-                <option value="Cerah Berawan">Cerah Berawan</option>
-                <option value="Berawan">Berawan</option>
-                <option value="Hujan Ringan">Hujan Ringan</option>
-                <option value="Hujan Sedang">Hujan Sedang</option>
-                <option value="Hujan Lebat">Hujan Lebat</option>
-                <option value="Hujan Petir">Hujan Petir</option>
-                </select><br><br>
-            <label for="pH">pH Tanah: </label>
-            <input type="text" id="pH" name="pH"><br><br>
-            <input type="submit" value="Predict">
-        </form>
+            <form id="predictForm" action="{{ url('/AI/predict') }}" method="post">
+                @csrf
+                    <div class="container">
+                        <div class="form-group">
+                            <input type="hidden" id="suhu" name="suhu">
+                            <label for="curah_hujan">Cuaca</label>
+                            <select id="curah_hujan" name="curah_hujan" class="form-control">
+                                <option value="Cerah">Cerah</option>
+                                <option value="Cerah Berawan">Cerah Berawan</option>
+                                <option value="Berawan">Berawan</option>
+                                <option value="Hujan Ringan">Hujan Ringan</option>
+                                <option value="Hujan Sedang">Hujan Sedang</option>
+                                <option value="Hujan Lebat">Hujan Lebat</option>
+                                <option value="Hujan Petir">Hujan Petir</option>
+                            </select>
+                            <label for="pH">pH Tanah</label>
+                            <input type="text" id="pH" name="pH" class="form-control">
+                            <input type="hidden" id="kelembapan" name="kelembapan">
+                        <br/>
+                    </div>
+
+                <input type="submit" value="Predict" class="btn btn-success">
+            </form>
+        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
@@ -146,6 +153,7 @@
             temperatureElement.textContent = `Suhu: ${temperatureValue}°C`;
 
             document.getElementById('suhu').value = temperatureValue;
+            document.getElementById('kelembapan').value = humidityValue;
         });
     } else {
         console.log("Lokasi Geografis tidak didukung didalam web ini.");
