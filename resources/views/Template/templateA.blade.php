@@ -65,13 +65,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="/dashboardA"><strong>Home</strong></a>
+                            <a class="nav-link click-scroll" href="/dashboardA"><strong>Beranda</strong></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="/artikelA"><strong>Artikel</strong></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="/diskusiA"><strong>Diskusi</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{{ route('daftar.petani') }}"><strong>Daftar Petani</strong></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">

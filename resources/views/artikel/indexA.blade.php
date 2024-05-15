@@ -1,36 +1,46 @@
 @extends('Template.templateA')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-lg-3">
-            <div class="mt-3">
-                <a href="{{ route('artikel.create') }}" class="btn btn-success btn-block w-100">Tambah Artikel</a>
-            </div>
+        <div class="mt-3 col-lg-6">
+            <a href="{{ route('artikel.create') }}" class="btn btn-success btn-block w-100">Tambah Artikel</a>
         </div>
-        <div class="col-lg-9">
-            @foreach($artikels->sortByDesc(function($artikel) {return $artikel->bookmarks()->where('user_id', auth()->id())->exists();}) as $artikel)
-                <a href="{{ route('artikel.showAdmin', ['id' => $artikel->id]) }}" class="container card mb-3" style="color: black; text-decoration: none;">
-                    <div class="card-body">
-                        <h4 class="card-text" style="margin-left: 150px;">{{ $artikel->judul }}</h4>
-                        <img src="{{ asset('media/'.$artikel->gambar) }}" alt="Gambar Artikel" style="max-width: 100px; margin-top: -50px;">
-                    </div>
-                    <div class="card-footer">
-                        <form action="{{ route('artikel.toggleBookmark', ['id' => $artikel->id]) }}" method="POST">
+        <div class="mt-3 col-lg-6">
+            <a href="{{ route('artikel.bookmarkA')}}" class="btn btn-success btn-block w-100">Daftar Bookmark</a>
+        </div>
+    </div>
+</div>
+<br/>
+<div class="container">
+    <div class="row justify-content-center">
+        @foreach($artikels as $artikel)
+            <div class="col-md-5 mb-4 d-flex align-items-stretch">
+                <div class="card w-100">
+                    @if($artikel->gambar)
+                        <img src="{{ asset('media/'.$artikel->gambar) }}" class="card-img-top img-fluid" alt="Gambar Artikel" style="object-fit: cover; height: 200px;">
+                    @endif
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ $artikel->judul }}</h5>
+                        <p class="card-text flex-grow-1">
+                            {{ Str::limit(strip_tags($artikel->isi), 100, '...') }}
+                        </p>
+                        <a href="{{ route('artikel.showAdmin', ['id' => $artikel->id]) }}" class="btn btn-primary mt-auto">Baca Selengkapnya</a>
+                        <form action="{{ route('artikel.toggleBookmark', ['id' => $artikel->id]) }}" method="POST" class="mt-2">
                             @csrf
                             @php
                                 $isBookmarked = $artikel->bookmarks()->where('user_id', auth()->id())->exists();
                             @endphp
                             @if($isBookmarked)
-                                <button type="submit" class="btn btn-danger"> Hapus dari Bookmark </button>
+                                <button type="submit" class="btn btn-danger w-100"> Hapus dari Bookmark </button>
                             @else
-                                <button type="submit" class="btn btn-primary">Tambahkan ke Bookmark </button>
+                                <button type="submit" class="btn btn-success w-100">Tambahkan ke Bookmark </button>
                             @endif
                         </form>
                     </div>
-                </a>
-            @endforeach
-        </div>
+                </div>
+            </div>
+        @endforeach
     </div>
 </div>
 @endsection

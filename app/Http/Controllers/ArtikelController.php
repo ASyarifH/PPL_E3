@@ -14,36 +14,36 @@ class ArtikelController extends Controller
     {
         $artikel = Artikel::findOrFail($id);
         $user = auth()->user();
-    
-        // Periksa apakah artikel sudah di-bookmark oleh user
+        
         $bookmark = Bookmark::where('user_id', $user->id)
                             ->where('artikel_id', $artikel->id)
                             ->first();
-    
-        // Jika sudah di-bookmark, hapus dari bookmark
+        
         if ($bookmark) {
             $bookmark->delete();
         } else {
-            // Jika belum di-bookmark, tambahkan ke bookmark
             Bookmark::create([
                 'user_id' => $user->id,
                 'artikel_id' => $artikel->id
             ]);
         }
     
-        // Redirect ke halaman sebelumnya
         return back();
     }
 
     public function ArtikelAdmin()
     {
-        $artikels = Artikel::orderByDesc('bookmark')->get();
+        $artikels = Artikel::orderBy('created_at', 'desc')->get();
+
+        // Pass the articles to the view
         return view('artikel.indexA', compact('artikels'));
     }
     
     public function ArtikelPetani()
     {
-        $artikels = Artikel::orderByDesc('bookmark')->get();
+        $artikels = Artikel::orderBy('created_at', 'desc')->get();
+
+        // Pass the articles to the view
         return view('artikel.indexP', compact('artikels'));
     }
 
@@ -57,11 +57,14 @@ class ArtikelController extends Controller
         $validatedData = $request->validate([
             'judul' => 'required',
             'isi' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     
-        $imageName = time().'.'.$request->gambar->extension();  
-        $request->gambar->move(public_path('media'), $imageName);
+        $imageName = null;
+        if ($request->hasFile('gambar')) {
+            $imageName = time().'.'.$request->gambar->extension();  
+            $request->gambar->move(public_path('media'), $imageName);
+        }
     
         Artikel::create([
             'judul' => $validatedData['judul'],
@@ -71,6 +74,7 @@ class ArtikelController extends Controller
     
         return redirect()->route('artikelA');
     }
+    
     
 
     public function showAdmin(string $id)
@@ -107,4 +111,25 @@ class ArtikelController extends Controller
         //
     }
 
+    public function bookmarkAdmin()
+    {
+        $bookmarkedArtikels = DB::table('bookmarks')
+            ->join('artikels', 'bookmarks.artikel_id', '=', 'artikels.id')
+            ->select('artikels.*')
+            ->where('bookmarks.user_id', Auth::id())
+            ->get();
+    
+        return view('artikel.bookmarkA', compact('bookmarkedArtikels'));
+    }
+
+    public function bookmarkPetani()
+    {
+        $bookmarkedArtikels = DB::table('bookmarks')
+            ->join('artikels', 'bookmarks.artikel_id', '=', 'artikels.id')
+            ->select('artikels.*')
+            ->where('bookmarks.user_id', Auth::id())
+            ->get();
+
+        return view('artikel.bookmarkP', compact('bookmarkedArtikels'));
+    }
 }

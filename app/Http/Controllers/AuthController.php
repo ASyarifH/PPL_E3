@@ -151,6 +151,13 @@ class AuthController extends Controller
         return view('auth.akunP', compact('user'));
     }
 
+    public function showDaftarPetani()
+    {
+        $petani = User::where('role', 'petani')->get();
+
+        return view('daftarpetani.index', compact('petani'));
+    }
+
     public function updateProfile(Request $request)
     {
         $user = $request->user();

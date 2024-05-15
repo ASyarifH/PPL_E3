@@ -23,7 +23,6 @@ class DiskusiController extends Controller
 
     public function pertanyaansaya()
     {
-        // Ambil semua data pertanyaan yang dimiliki oleh pengguna yang sedang login
         $pertanyaansaya = Diskusi::where('user_id', Auth::id())->get();
         return view('diskusi.pertanyaansaya', compact('pertanyaansaya'));
     }

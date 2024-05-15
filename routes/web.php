@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profileP', [AuthController::class, 'showProfilePetani'])->name('profile');
     Route::post('/profileA/update', [AuthController::class, 'updateProfile'])->name('profile.update');
     Route::post('/profileP/update', [AuthController::class, 'updateProfile'])->name('profile.update');
+    Route::get('/daftar-petani', [AuthController::class, 'showDaftarPetani'])->name('daftar.petani');
 
     //Rute sebelum login/sebagai tamu
     Route::get('/artikel', [ArtikelController::class, 'index']);
@@ -59,6 +60,8 @@ Route::middleware('auth')->group(function () {
     Route::get('artikel/{id}/showAdmin', [ArtikelController::class, 'showAdmin'])->name('artikel.showAdmin');
     Route::get('artikel/{id}/showPetani', [ArtikelController::class, 'showPetani'])->name('artikel.showPetani');
     Route::post('/artikel/{id}/toggle-bookmark', [ArtikelController::class, 'toggleBookmark'])->name('artikel.toggleBookmark');
+    Route::get('/bookmarkA', [ArtikelController::class, 'bookmarkAdmin'])->name('artikel.bookmarkA');
+    Route::get('/bookmarkP', [ArtikelController::class, 'bookmarkPetani'])->name('artikel.bookmarkP');
     
     Route::resource('diskusi', DiskusiController::class);
     Route::resource('diskusi/{diskusi}/jawaban', JawabanController::class);
