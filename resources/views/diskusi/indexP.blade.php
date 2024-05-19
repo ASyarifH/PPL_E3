@@ -23,6 +23,9 @@
                             <img width="40px" height="40px" style="border-radius: 50%" src="{{ asset('images/user.png') }}" alt="">
                             <span>{{ $diskusi->author->name }}</span>
                         </div>
+                        <div>
+                            <span>{{ $diskusi->countJawaban() }} Jawaban</span>
+                        </div>
                     </div>
                     <hr>
                     <p class="card-text">{!! $diskusi->pertanyaan !!}</p>
@@ -33,3 +36,4 @@
     </div>
 </div>
 @endsection
+

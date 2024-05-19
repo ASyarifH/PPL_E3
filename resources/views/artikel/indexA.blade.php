@@ -2,14 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="mt-3 col-lg-6">
-            <a href="{{ route('artikel.create') }}" class="btn btn-success btn-block w-100">Tambah Artikel</a>
-        </div>
-        <div class="mt-3 col-lg-6">
-            <a href="{{ route('artikel.bookmarkA')}}" class="btn btn-success btn-block w-100">Daftar Bookmark</a>
-        </div>
-    </div>
+    <a href="{{ route('artikel.create') }}" class="btn btn-success btn-block w-100">Tambah Artikel</a>
 </div>
 <br/>
 <div class="container">
@@ -26,16 +19,6 @@
                             {{ Str::limit(strip_tags($artikel->isi), 100, '...') }}
                         </p>
                         <a href="{{ route('artikel.showAdmin', ['id' => $artikel->id]) }}" class="btn btn-primary mt-auto">Baca Selengkapnya</a>
-                        <form action="{{ route('artikel.toggleBookmark', ['id' => $artikel->id]) }}" method="POST" class="mt-2">
-                            @csrf
-                            @php
-                                $isBookmarked = $artikel->bookmarks()->where('user_id', auth()->id())->exists();
-                            @endphp
-                            @if($isBookmarked)
-                                <button type="submit" class="btn btn-danger w-100"> Hapus dari Bookmark </button>
-                            @else
-                                <button type="submit" class="btn btn-success w-100">Tambahkan ke Bookmark </button>
-                            @endif
                         </form>
                     </div>
                 </div>

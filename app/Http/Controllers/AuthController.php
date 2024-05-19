@@ -32,11 +32,9 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 'petani', // default role petani
+            'role' => 'petani',
         ]);
 
-    
-        // Redirect ke halaman login jika berhasil
         return redirect()->route('login')->with('success', 'Akun berhasil dibuat.');
     }
 
@@ -48,7 +46,6 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        // Jika pengguna sudah login, arahkan ke halaman yang sesuai berdasarkan peran mereka
         if (Auth::check()) {
             if (Auth::user()->role === 'admin') {
                 return redirect()->route('Dashboardadmin');
@@ -57,18 +54,14 @@ class AuthController extends Controller
             }
         }
 
-        // Validasi data
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
 
-        // Coba melakukan login
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // Setel peran pengguna ke sesi
             session(['role' => Auth::user()->role]);
 
-            // Redirect ke dashboard sesuai peran
             if (Auth::user()->role === 'admin') {
                 return redirect()->route('Dashboardadmin');
             } elseif (Auth::user()->role === 'petani') {
@@ -76,7 +69,6 @@ class AuthController extends Controller
             }
         }
 
-        // Jika gagal, kembali ke halaman login dengan pesan error
         return back()->withErrors(['loginError' => 'Email atau password salah.']);
     }
 
@@ -162,14 +154,11 @@ class AuthController extends Controller
     {
         $user = $request->user();
     
-        // Validasi data dari formulir
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            // Tambahkan validasi untuk kolom lainnya sesuai kebutuhan
         ]);
     
-        // Panggil method updateUser() dari model User
         $user->updateUser($validatedData);
     
         return back();

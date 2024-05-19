@@ -60,8 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::get('artikel/{id}/showAdmin', [ArtikelController::class, 'showAdmin'])->name('artikel.showAdmin');
     Route::get('artikel/{id}/showPetani', [ArtikelController::class, 'showPetani'])->name('artikel.showPetani');
     Route::post('/artikel/{id}/toggle-bookmark', [ArtikelController::class, 'toggleBookmark'])->name('artikel.toggleBookmark');
-    Route::get('/bookmarkA', [ArtikelController::class, 'bookmarkAdmin'])->name('artikel.bookmarkA');
-    Route::get('/bookmarkP', [ArtikelController::class, 'bookmarkPetani'])->name('artikel.bookmarkP');
+    Route::get('/bookmark', [ArtikelController::class, 'bookmark'])->name('artikel.bookmark');
     
     Route::resource('diskusi', DiskusiController::class);
     Route::resource('diskusi/{diskusi}/jawaban', JawabanController::class);

@@ -79,20 +79,20 @@
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-6">
           <div class="header">
-            <h1>Welcome to Our Website</h1>
+            <h1>???</h1>
             <p>Register Akunmu Untuk Merasakan Fitur Web Kami</p>
           </div>
                 @if ($errors->has('name'))
                   <div style="color: red;">
-                    <strong></strong> Username, Email dan Password harus diisi.
+                    <strong></strong> Username, Email, dan Password harus diisi.
                   </div>
                 @elseif ($errors->has('email'))
                   <div style="color: red;">
-                    <strong></strong> Username, Email dan Password harus diisi.
+                    <strong></strong> Username, Email, dan Password harus diisi.
                   </div>
                 @elseif ($errors->has('password'))
                   <div style="color: red;">
-                    <strong></strong> Username, Email dan Password harus diisi.
+                    <strong></strong> Username, Email, dan Password harus diisi.
                   </div>
                 @endif
           <div>
@@ -112,7 +112,7 @@
                 <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password">
                 <br />
                 <button class="register" type="submit">Register</button>
-                <p>Already have an account? <a href="{{ url('/login') }}">Log in</a></p>
+                <p>Sudah memiliki akun? <a href="{{ url('/login') }}">Log in</a></p>
               </div>
             </form>
           </div>

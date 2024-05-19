@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('artikel.bookmarkP')}}" class="btn btn-success btn-block w-100">Daftar Bookmark</a>
+    <a href="{{ route('artikel.bookmark')}}" class="btn btn-success btn-block w-100">Daftar Bookmark</a>
 </div>
 <br/>
 <div class="container">

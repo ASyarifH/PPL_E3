@@ -15,7 +15,7 @@
 
         <div class="col-lg-9">
             @foreach($pertanyaansaya as $diskusi)
-            <a href="{{ route('diskusi.show', $diskusi->slug) }}" class="card mb-3" style="color: black; text-decoration: none;">
+            <a href="{{ route('diskusi.showP', $diskusi->slug) }}" class="card mb-3" style="color: black; text-decoration: none;">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div>

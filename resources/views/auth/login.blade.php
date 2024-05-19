@@ -103,11 +103,8 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                     <p><a href="{{ url('/forgot-password') }}">Forgot Password?</a></p>
- 
-                    <a href="#" class="text-decoration none text-center"></a>
-                    <button class="signin">Log In</button>
-                    <p>Doesn't have an account? <a href="{{ url('/register') }}">Sign up</a></p>
-                    </button>
+                    <button class="signin" type="submit">Log In</button>
+                    <p>Belum punya akun? <a href="{{ url('/register') }}">Sign up</a></p>
                   </div>
                 </form>
               </div>

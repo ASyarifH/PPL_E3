@@ -12,12 +12,12 @@ class DiskusiController extends Controller
 {
     public function DiskusiAdmin()
     {
-        $diskusi = Diskusi::all();
+        $diskusi = Diskusi::orderBy('created_at', 'desc')->get();
         return view('diskusi.indexA', compact('diskusi'));
     }
     public function DiskusiPetani()
     {
-        $diskusi = Diskusi::all();
+        $diskusi = Diskusi::orderBy('created_at', 'desc')->get();
         return view('diskusi.indexP', compact('diskusi'));
     }
 

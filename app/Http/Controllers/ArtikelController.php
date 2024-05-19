@@ -34,16 +34,12 @@ class ArtikelController extends Controller
     public function ArtikelAdmin()
     {
         $artikels = Artikel::orderBy('created_at', 'desc')->get();
-
-        // Pass the articles to the view
         return view('artikel.indexA', compact('artikels'));
     }
     
     public function ArtikelPetani()
     {
         $artikels = Artikel::orderBy('created_at', 'desc')->get();
-
-        // Pass the articles to the view
         return view('artikel.indexP', compact('artikels'));
     }
 
@@ -111,18 +107,7 @@ class ArtikelController extends Controller
         //
     }
 
-    public function bookmarkAdmin()
-    {
-        $bookmarkedArtikels = DB::table('bookmarks')
-            ->join('artikels', 'bookmarks.artikel_id', '=', 'artikels.id')
-            ->select('artikels.*')
-            ->where('bookmarks.user_id', Auth::id())
-            ->get();
-    
-        return view('artikel.bookmarkA', compact('bookmarkedArtikels'));
-    }
-
-    public function bookmarkPetani()
+    public function bookmark()
     {
         $bookmarkedArtikels = DB::table('bookmarks')
             ->join('artikels', 'bookmarks.artikel_id', '=', 'artikels.id')
@@ -130,6 +115,6 @@ class ArtikelController extends Controller
             ->where('bookmarks.user_id', Auth::id())
             ->get();
 
-        return view('artikel.bookmarkP', compact('bookmarkedArtikels'));
+        return view('artikel.bookmark', compact('bookmarkedArtikels'));
     }
 }

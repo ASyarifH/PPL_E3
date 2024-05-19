@@ -6,15 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diskusi extends Model
 {
-        /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
     protected $table = 'diskusi';
     
     protected $fillable = [
-        'pertanyaan', 'slug', 'user_id', // tambahkan 'title' ke dalam $fillable
+        'pertanyaan', 'slug', 'user_id',
     ];
 
     public function author()
@@ -30,5 +25,10 @@ class Diskusi extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function countJawaban()
+    {
+        return $this->jawaban()->count();
     }
 }
