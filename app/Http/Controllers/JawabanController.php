@@ -42,7 +42,7 @@ class JawabanController extends Controller
             'diskusi_id' => $diskusi->id,
         ]);
 
-        return back();
+        return back()->with('success', 'Jawaban berhasil ditambahkan');
     }
 
     public function show(string $id)
@@ -73,7 +73,7 @@ class JawabanController extends Controller
             'jawaban' => $request->jawaban,
         ]);
     
-        return back();
+        return back()->with('success_edit', 'Jawaban berhasil diubah');
     }
 
     /**

@@ -19,6 +19,14 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:display=swap');
+        
+        *{
+            font-family: 'Poppins', sans-serif;
+            src: url();
+        }
+
         .navbar {
             position: fixed;
             top: 0;
@@ -56,12 +64,16 @@
 
         .judul-about,
         .judul-alasan {
-            background-color: #4B4D26;
+            background-color: transparent;
             position: relative;
-            color: white;
+            color: #4B4D26;
             display: inline-block;
             padding: 10px 20px;
             margin-bottom: 20px;
+        }
+
+        .isi-about{
+            color:#729043;
         }
 
         .site-footer{
@@ -104,10 +116,10 @@
                     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user fa-fw"></i>
+                                <img src="img/Akun.png" alt="SiPetani Logo" style="width: 35%;">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/profileA">Akun</a></li>
+                                <li><a class="dropdown-item" href="/profileP">Akun</a></li>
                                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>
@@ -142,44 +154,40 @@
                     </div>
                     <div class="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
                         <div class="services-info">
-                            <h2 class="judul-about">TENTANG SIPETANI</h2>
+                            <h2 class="judul-about">Temukan cerita dibalik sipetani</h2>
                             <p class="isi-about">SIPETANI merupakan inovasi baru dalam dunia pertanian yang menggabungkan kecerdasan buatan dengan data lingkungan untuk memberikan prediksi tanam yang akurat. Kami berkomitmen untuk membantu petani dengan informasi dan pengetahuan yang mereka butuhkan untuk meningkatkan hasil panen.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="artists-section section-padding" id="section_3">
+        <section class="section-padding" id="section_3">
             <div class="container">
                 <div class="row justify-content-center">
-
                     <div class="col-12 text-center">
-                        <h2 class="judul-alasan">MENGAPA HARUS PETANI</h1>
+                        <h2 class="judul-alasan">MENGAPA HARUS SIPETANI?</h2>
                     </div>
-
-                    <div class="col-lg-5 col-12">
-                        <div class="artists-thumb">
-                            <div class="artists-image-wrap">
-                                <img src="images/crops/rice.jpg"
-                                    class="artists-image img-fluid">
-                            </div>
+                    <div class="col-lg-4 col-12 mb-4 mb-lg-0 text-center">
+                        <div class="feature">
+                            <img src="img/feature1.png" alt="Feature 1" class="img-fluid mb-3">
+                            <h4 class="">FITUR PREDIKSI TANAM</h4>
+                            <p>Kami menggunakan teknologi AI untuk memberikan prediksi waktu tanam yang akurat berdasarkan kondisi lingkungan yang ada.</p>
                         </div>
                     </div>
-
-                    <div class="col-lg-5 col-12">
-                        <div class="artists-thumb">
-                            <div class="artists-image-wrap">
-                                <img src="images/crops/cabbage.jpg"
-                                    class="artists-image img-fluid">
-                            </div>
-                        </div>
-
-                        <div class="artists-thumb">
-                            <img src="images/crops/corn.jpg"
-                                class="artists-image img-fluid">
+                    <div class="col-lg-4 col-12 mb-4 mb-lg-0 text-center">
+                        <div class="feature">
+                            <img src="img/feature2.png" alt="Feature 2" class="img-fluid mb-3">
+                            <h4>FITUR FORUM DISKUSI</h4>
+                            <p>Forum diskusi untuk berbagi pengalaman, berdiskusi, dan belajar dari petani lain.</p>
                         </div>
                     </div>
-
+                    <div class="col-lg-4 col-12 mb-4 mb-lg-0 text-center">
+                        <div class="feature">
+                            <img src="img/feature3.png" alt="Feature 3" class="img-fluid mb-3">
+                            <h4>FITUR ARTIKEL</h4>
+                            <p>Kami menyediakan berbagai artikel informatif seputar pertanian yang dapat membantu petani.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

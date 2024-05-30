@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diskusi extends Model
 {
-    protected $table = 'diskusi';
-    
     protected $fillable = [
         'pertanyaan', 'slug', 'user_id',
     ];

@@ -79,20 +79,20 @@
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-6">
           <div class="header">
-            <h1>???</h1>
+            <h1>Registrasi</h1>
             <p>Register Akunmu Untuk Merasakan Fitur Web Kami</p>
           </div>
                 @if ($errors->has('name'))
                   <div style="color: red;">
-                    <strong></strong> Username, Email, dan Password harus diisi.
+                    <strong></strong> Nama pengguna, Email dan kata sandi harus diisi.
                   </div>
                 @elseif ($errors->has('email'))
                   <div style="color: red;">
-                    <strong></strong> Username, Email, dan Password harus diisi.
+                    <strong></strong> Nama pengguna, Email dan kata sandi harus diisi.
                   </div>
                 @elseif ($errors->has('password'))
                   <div style="color: red;">
-                    <strong></strong> Username, Email, dan Password harus diisi.
+                    <strong></strong> Nama pengguna, Email dan kata sandi harus diisi.
                   </div>
                 @endif
           <div>

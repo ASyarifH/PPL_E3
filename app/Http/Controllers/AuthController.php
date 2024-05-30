@@ -90,10 +90,8 @@ class AuthController extends Controller
             return back()->withErrors(['message' => 'Username atau Email tidak ada dalam database.']);
         }
 
-        // Generate a password reset token
         $token = Password::createToken($user);
     
-        // Redirect to the reset password form with the token
         return redirect()->route('reset-password', ['token' => $token, 'email' => $request->email, 'name' => $request->name]);
     }
 
@@ -125,7 +123,7 @@ class AuthController extends Controller
         );
     
         if ($status == Password::PASSWORD_RESET) {
-            return redirect()->route('login')->with('success', 'password berhasil diubah.');
+            return redirect()->route('login')->with('success', 'kata sandi berhasil diubah.');
         } else {
             return back()->withErrors(['message' => 'Password dan konfirmasi password tidak cocok.']);
         }
@@ -161,7 +159,7 @@ class AuthController extends Controller
     
         $user->updateUser($validatedData);
     
-        return back();
+        return redirect()->back()->with('success', 'Data berhasil diubah.');;
     }
      
     public function logout(Request $request)

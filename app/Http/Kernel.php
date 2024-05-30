@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+
         ],
 
         'api' => [
@@ -69,5 +70,6 @@ class Kernel extends HttpKernel
         // other middlewares...
         'redirect.admin' => \App\Http\Middleware\RedirectIfAdmin::class,
         'redirect.petani' => \App\Http\Middleware\RedirectIfPetani::class,
+        'redirect.auth' => \App\Http\Middleware\RedirectIfAuthenticated::class,
     ];
 }

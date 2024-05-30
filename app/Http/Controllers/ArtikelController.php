@@ -7,6 +7,7 @@ use App\Models\Artikel;
 use App\Models\Bookmark;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ArtikelController extends Controller
 {
@@ -21,6 +22,7 @@ class ArtikelController extends Controller
         
         if ($bookmark) {
             $bookmark->delete();
+            return redirect()->back()->with('success', 'Artikel berhasil dihapus dari daftar yang disukai.');
         } else {
             Bookmark::create([
                 'user_id' => $user->id,
@@ -68,7 +70,7 @@ class ArtikelController extends Controller
             'gambar' => $imageName,
         ]);
     
-        return redirect()->route('artikelA');
+        return redirect()->route('artikelA')->with('success', 'artikel berhasil ditambahkan');
     }
     
     
@@ -89,15 +91,44 @@ class ArtikelController extends Controller
      * Show the form for editing the specified resource.
      */
 
-    public function edit(string $id)
-    {
-        //
-    }
+     public function edit(string $id)
+     {
+         $artikel = Artikel::findOrFail($id);
+         return view('artikel.edit', compact('artikel'));
+     }
 
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+     public function update(Request $request, string $id)
+     {
+         $validatedData = $request->validate([
+             'judul' => 'required',
+             'isi' => 'required',
+             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         ]);
+     
+         $artikel = Artikel::findOrFail($id);
+     
+         // Update judul dan isi
+         $artikel->judul = $validatedData['judul'];
+         $artikel->isi = $validatedData['isi'];
+     
+         // Update gambar jika ada
+         if ($request->hasFile('gambar')) {
+             // Hapus gambar lama jika ada
+             if ($artikel->gambar) {
+                 Storage::delete('media/'.$artikel->gambar);
+             }
+             
+             // Unggah gambar baru
+             $imageName = time().'.'.$request->gambar->extension();  
+             $request->gambar->move(public_path('media'), $imageName);
+             $artikel->gambar = $imageName;
+         }
+     
+         $artikel->save();
+     
+         return redirect()->route('artikelA')->with('success_edit', 'Artikel berhasil diubah');
+     }
+     
 
     /**
      * Remove the specified resource from storage.

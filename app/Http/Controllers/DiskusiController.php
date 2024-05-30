@@ -12,13 +12,13 @@ class DiskusiController extends Controller
 {
     public function DiskusiAdmin()
     {
-        $diskusi = Diskusi::orderBy('created_at', 'desc')->get();
-        return view('diskusi.indexA', compact('diskusi'));
+        $diskusis = Diskusi::orderBy('created_at', 'desc')->get();
+        return view('diskusi.indexA', compact('diskusis'));
     }
     public function DiskusiPetani()
     {
-        $diskusi = Diskusi::orderBy('created_at', 'desc')->get();
-        return view('diskusi.indexP', compact('diskusi'));
+        $diskusis = Diskusi::orderBy('created_at', 'desc')->get();
+        return view('diskusi.indexP', compact('diskusis'));
     }
 
     public function pertanyaansaya()
@@ -52,7 +52,7 @@ class DiskusiController extends Controller
             'user_id' => Auth::id(),
         ]);
     
-        return redirect()->route('diskusiP');
+        return redirect()->route('diskusiP')->with('success_buat', 'pertanyaan berhasil ditambahkan');
     }
 
     public function showAdmin($slug)
@@ -70,16 +70,34 @@ class DiskusiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $diskusi = Diskusi::findOrFail($id);
+        $referrer = request()->headers->get('referer');
+        return view('diskusi.edit', compact('diskusi', 'referrer'));
     }
-
-    public function update(Request $request, string $id)
+    
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'pertanyaan' => 'required',
+        ]);
+    
+        $diskusi = Diskusi::findOrFail($id);
+        $diskusi->pertanyaan = $request->input('pertanyaan');
+        $diskusi->save();
+    
+        $referrer = $request->input('referrer');
+        
+        if (strpos($referrer, route('diskusiP')) !== false) {
+            return redirect()->route('diskusiP')->with('success_edit_pertanyaan', 'Pertanyaan berhasil diubah');
+        } elseif (strpos($referrer, route('diskusi.showP', $diskusi->slug)) !== false) {
+            return redirect()->route('diskusi.showP', $diskusi->slug)->with('success_edit_pertanyaan', 'Pertanyaan berhasil diubah');
+        } else {
+            // Default redirection if the referrer is not recognized
+            return redirect()->route('diskusi.index')->with('success_edit_pertanyaan', 'Pertanyaan berhasil diubah');
+        }
     }
-
     /**
      * Remove the specified resource from storage.
      */
@@ -89,9 +107,3 @@ class DiskusiController extends Controller
     }
 
 }
-
-// if search()
-// {
-//     $customers = Customer::where('full_name', 'LIKE', "%{$search}%")->get();
-//     return($costumer)
-// }

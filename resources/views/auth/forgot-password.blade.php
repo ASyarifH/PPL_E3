@@ -109,7 +109,7 @@
                         <label for="email" class="form-label">Email</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="email" value="{{ old('email') }}">
                         <br />
-                        <button type="submit" class="Forgot-password">Send Reset Link</button>
+                        <button type="submit" class="Forgot-password">Atur Ulang Kata Sandi</button>
                         </button>
                   </div>
                 </form>

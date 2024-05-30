@@ -93,7 +93,9 @@
             <div class="col-6">
                 <div class="header">
                 <h1>Reset Password</h1>
-                    <!-- <p>Enter your Credentials to access your account</p> -->
+                    @error('password')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div>
                     <form method="POST" action="{{ route('reset-password.post') }}">
@@ -110,10 +112,7 @@
                             <label for="password_confirmation" class="form-label">Confirm Password</label>
                             <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" placeholder="Password" required>
                             <br />
-                                @error('password')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            <button type="submit" class="Reset-Password">Reset Password</button>
+                            <button type="submit" class="Reset-Password">Konfirmasi</button>
                         </div>
                     </form>
               </div>

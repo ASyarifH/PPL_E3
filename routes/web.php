@@ -61,13 +61,17 @@ Route::middleware('auth')->group(function () {
     Route::get('artikel/{id}/showPetani', [ArtikelController::class, 'showPetani'])->name('artikel.showPetani');
     Route::post('/artikel/{id}/toggle-bookmark', [ArtikelController::class, 'toggleBookmark'])->name('artikel.toggleBookmark');
     Route::get('/bookmark', [ArtikelController::class, 'bookmark'])->name('artikel.bookmark');
+    Route::get('/artikel/{id}/edit', [ArtikelController::class, 'edit'])->name('artikel.edit');
+    Route::put('/artikel/{id}', [ArtikelController::class, 'update'])->name('artikel.update');
     
     Route::resource('diskusi', DiskusiController::class);
-    Route::resource('diskusi/{diskusi}/jawaban', JawabanController::class);
-    Route::put('jawaban/{jawaban}', [JawabanController::class, 'update'])->name('jawaban.update');
     Route::get('/diskusiA', [DiskusiController::class, 'DiskusiAdmin']);
     Route::get('/diskusiP', [DiskusiController::class, 'DiskusiPetani'])->name('diskusiP');
     Route::get('/diskusi/showA/{slug}', [DiskusiController::class, 'showAdmin'])->name('diskusi.showA');
     Route::get('/diskusi/showP/{slug}', [DiskusiController::class, 'showPetani'])->name('diskusi.showP');
     Route::get('/Daftar-Pertanyaan', [DiskusiController::class, 'pertanyaansaya'])->name('diskusi.pertanyaansaya');
+    Route::get('/diskusi/{id}/edit', [DiskusiController::class, 'edit'])->name('diskusi.edit');
+    Route::put('/diskusi/{id}', [DiskusiController::class, 'update'])->name('diskusi.update');    
+    Route::resource('diskusi/{diskusi}/jawaban', JawabanController::class);
+    Route::put('jawaban/{jawaban}', [JawabanController::class, 'update'])->name('jawaban.update');
 });

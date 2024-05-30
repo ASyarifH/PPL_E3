@@ -1,31 +1,47 @@
-@extends('Template.templateA')
+@extends('Template.templateAF')
 
 @section('content')
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Petani</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
     <style>
-    table {
-    border-collapse: collapse;
-    width: 100%;
-    }
+        body {
+            background-color: #CCC1B5;
+        }
 
-    td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    }
+        .content {
+            margin-left: 100px;
+            padding: 20px;
+            width: calc(100% - 100px);
+        }
 
-    thead {
-    background-color: #729043;
-    color: white;
-    }
+        .table th, .table td {
+            vertical-align: middle;
+        }
 
-    tr:nth-child(even) {
-    background-color: #dddddd;
-    }
-    
-    </style>
-    <h5 class="container">Daftar Petani</h5>
-    
-    <table class="container table">
+        .card {
+            margin: 0 auto;
+            width: 100%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            background-color: #f8f9fa;
+            font-size: 1.5rem;
+        }
+  </style>
+</head>
+<body> 
+    <div class="content">
+      <div class="card">
+        <div class="card-header">
+          <h2>Data Petani</h2>
+        </div>
+        <div class="card-body">
+        <table class="table table-striped">
         <thead>
             <tr>
                 <th>Nama User</th>
@@ -50,4 +66,13 @@
             @endforeach
         </tbody>
     </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 @endsection

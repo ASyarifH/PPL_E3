@@ -19,55 +19,192 @@ class AIController extends Controller
         'suhu' => 'required|numeric',
         'curah_hujan' => 'required|string',
         'pH' => 'required|numeric',
-        'kelembapan' => 'required|numeric'
+        'kelembapan' => 'required|numeric',
+        'tempat' => 'required'
     ]);
 
     $suhu = $request->input('suhu');
     $curah_hujan = $request->input('curah_hujan');
     $pH = $request->input('pH');
     $kelembapan = $request->input('kelembapan');
-
+    $tempat = $request->input('tempat');
+    
+    if ($suhu < 20 || $suhu > 32) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
     if ($curah_hujan === "Hujan Petir" && ($pH < 5.5 || $pH > 7.5)) {
         return view('AI.output', [
             'suhu' => $suhu,
             'curah_hujan' => $curah_hujan,
             'ph' => $pH,
             'kelembapan' => $kelembapan,
-            'prediction' => 'Tidak dapat diprediksi: Curah Hujan dan pH tanah tidak mendukung untuk penanaman'
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
         ]);
-    }    
-
+    }
+    
     if ($pH < 5.5 || $pH > 7.5) {
         return view('AI.output', [
             'suhu' => $suhu,
             'curah_hujan' => $curah_hujan,
             'ph' => $pH,
             'kelembapan' => $kelembapan,
-            'prediction' => 'Tidak dapat diprediksi: Nilai pH terlalu rendah atau tinggi untuk melakukan penanaman'
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
         ]);
     }
-
+    
     if ($curah_hujan === "Hujan Petir") {
         return view('AI.output', [
             'suhu' => $suhu,
             'curah_hujan' => $curah_hujan,
             'ph' => $pH,
             'kelembapan' => $kelembapan,
-            'prediction' => 'Tidak dapat diprediksi: Curah Hujan ini termasuk badai yang memungkinkan untuk merusak tanaman'
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
         ]);
     }
-
-    if ($kelembapan < 60 || $pH > 95) {
+    
+    if ($kelembapan < 60 || $kelembapan > 95) {
         return view('AI.output', [
             'suhu' => $suhu,
             'curah_hujan' => $curah_hujan,
             'ph' => $pH,
             'kelembapan' => $kelembapan,
-            'prediction' => 'Tidak dapat diprediksi: Nilai kelembapan terlalu rendah/kering atau tinggi/basah untuk melakukan penanaman'
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
         ]);
     }
-
-
+    
+    if (($suhu < 20 || $suhu > 32) && $curah_hujan === "Hujan Petir") {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
+    if (($suhu < 20 || $suhu > 32) && ($pH < 5.5 || $pH > 7.5)) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
+    if (($suhu < 20 || $suhu > 32) && ($kelembapan < 60 || $kelembapan > 95)) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
+    if ($curah_hujan === "Hujan Petir" && ($pH < 5.5 || $pH > 7.5) && ($kelembapan < 60 || $kelembapan > 95)) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
+    if ($curah_hujan === "Hujan Petir" && ($kelembapan < 60 || $kelembapan > 95)) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
+    if (($pH < 5.5 || $pH > 7.5) && ($kelembapan < 60 || $kelembapan > 95)) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
+    if (($suhu < 20 || $suhu > 32) && $curah_hujan === "Hujan Petir" && ($pH < 5.5 || $pH > 7.5)) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
+    if (($suhu < 20 || $suhu > 32) && $curah_hujan === "Hujan Petir" && ($kelembapan < 60 || $kelembapan > 95)) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
+    if (($suhu < 20 || $suhu > 32) && ($pH < 5.5 || $pH > 7.5) && ($kelembapan < 60 || $kelembapan > 95)) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
+    if ($curah_hujan === "Hujan Petir" && ($pH < 5.5 || $pH > 7.5) && ($kelembapan < 60 || $kelembapan > 95)) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
+    if (($suhu < 20 || $suhu > 32) && $curah_hujan === "Hujan Petir" && ($pH < 5.5 || $pH > 7.5) && ($kelembapan < 60 || $kelembapan > 95)) {
+        return view('AI.output', [
+            'suhu' => $suhu,
+            'curah_hujan' => $curah_hujan,
+            'ph' => $pH,
+            'kelembapan' => $kelembapan,
+            'tempat' => $tempat,
+            'prediction' => 'Tidak dapat diprediksi'
+        ]);
+    }
+    
     // Panggil skrip Python
     $command = "C:\Users\ViCtus\AppData\Local\Programs\Python\Python311\python.exe";
     $scriptPath = base_path('app/Scriptpy/AI.py');
@@ -89,7 +226,8 @@ class AIController extends Controller
         'curah_hujan' => $curah_hujan,
         'ph' => $pH,
         'kelembapan' => $kelembapan,
-        'prediction' => $prediction
+        'tempat' => $tempat,
+        'prediction' => $prediction,
         ]);
     }
 }

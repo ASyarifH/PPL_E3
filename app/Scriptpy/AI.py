@@ -99,7 +99,6 @@ model.fit(X, y)
 def predict_crop(suhu, curah_hujan, pH, kelembapan):
     if curah_hujan in label_encoder.classes_:
         encoded_curah_hujan = label_encoder.transform([curah_hujan])[0]
-        # Melakukan prediksi
         prediction = model.predict([[suhu, pH, kelembapan] + [1 if col == f'Curah Hujan_{encoded_curah_hujan}' else 0 for col in X.columns[3:]]])
         return prediction[0]
     elif curah_hujan == 'hujan petir':
