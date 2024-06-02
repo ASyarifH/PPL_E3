@@ -32,6 +32,20 @@
             text-align: center;
         }
 
+        .navbar-nav .nav-link {
+            color: #729043;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #4B4D26;
+        }
+
+        .navbar-nav .nav-link i {
+            margin-right: 5px;
+        }
+
         .form-container {
             flex-grow: 1;
             display: flex;

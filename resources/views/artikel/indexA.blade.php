@@ -45,7 +45,8 @@
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close" style="background-color: transparent;">&times;</button>
             </div>
-        @else(session()->has('success_edit'))
+        @endif
+        @if(session()->has('success_edit'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success_edit') }}
                 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close" style="background-color: transparent;">&times;</button>

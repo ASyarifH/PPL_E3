@@ -57,6 +57,11 @@
             <i class="fas fa-ellipsis-h" data-toggle="modal" data-target="#editModal"></i>
         </div>
     </div>
+    @if ($errors->any())
+        <div style="color: red;">
+            <strong></strong> Pertanyaan tidak boleh kosong.
+        </div>
+    @endif
 
     <div class="card-body">
         <form action="{{ route ('diskusi.store')}}" method="POST">

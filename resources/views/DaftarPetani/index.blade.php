@@ -44,9 +44,9 @@
         <table class="table table-striped">
         <thead>
             <tr>
-                <th>Nama User</th>
+                <th>Nama Pengguna</th>
                 <th>Email</th>
-                <th>Password</th>
+                <th>Kata Sandi</th>
             </tr>
         </thead>
         <tbody>

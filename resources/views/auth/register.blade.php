@@ -99,17 +99,17 @@
             <form method="POST" action="{{ route('register') }}">
               @csrf
               <div class="login-form">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Username" autofocus>
+                <label for="username" class="form-label">Nama Pengguna</label>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Nama Pengguna" autofocus>
                 <br />
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="email" class="form-control" id="email" placeholder="Email">
                 <br />
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                <label for="password" class="form-label">Kata Sandi</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Kata Sandi">
                 <br />
-                <label for="password_confirmation" class="form-label">Confirm Password</label>
-                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm Password">
+                <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Konfirmasi Password">
                 <br />
                 <button class="register" type="submit">Register</button>
                 <p>Sudah memiliki akun? <a href="{{ url('/login') }}">Log in</a></p>

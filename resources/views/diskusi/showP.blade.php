@@ -131,7 +131,6 @@
                 <div class="d-flex justify-content-between">
                     <div>
                         <i class="far fa-comments"></i>
-                        <a href="{{ route('diskusi.showA', $diskusi->slug) }}">
                             <small class="text-muted">{{ $diskusi->countJawaban() }} Pembahasan</small>
                         </a>
                     </div>

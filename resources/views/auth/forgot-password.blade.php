@@ -82,7 +82,7 @@
           <div class="row justify-content-center align-items-center h-100">
             <div class="col-6">
                 <div class="header">
-                <h1>Reset Password</h1>
+                <h1>Atur Ulang Kata Sandi</h1>
                     <!-- <p>Enter your Credentials to access your account</p> -->
                 </div>
                 @if ($errors->has('message'))
@@ -103,8 +103,8 @@
                     <form method="POST" action="{{ route('forgot-password.post') }}">
                     @csrf
                         <div class="login-form">
-                        <label for="name" class="form-label">Name</label>
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Username" value="{{ old('name') }}" autofocus>
+                        <label for="name" class="form-label">Nama Pengguna</label>
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Nama Pengguna" value="{{ old('name') }}" autofocus>
                         <br />
                         <label for="email" class="form-label">Email</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="email" value="{{ old('email') }}">

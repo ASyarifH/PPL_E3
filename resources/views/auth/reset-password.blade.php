@@ -92,7 +92,7 @@
           <div class="row justify-content-center align-items-center h-100">
             <div class="col-6">
                 <div class="header">
-                <h1>Reset Password</h1>
+                <h1>Atur Ulang Kata Sandi</h1>
                     @error('password')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -105,12 +105,12 @@
                             <input type="hidden" name="name" value="{{ $name }}">
                             <input type="hidden" name="email" value="{{ $email }}">
 
-                            <label for="password" class="form-label">New Password</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autofocus>
+                            <label for="password" class="form-label">Kata Sandi</label>
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Kata Sandi" required autofocus>
 
                             <br />
-                            <label for="password_confirmation" class="form-label">Confirm Password</label>
-                            <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" placeholder="Password" required>
+                            <label for="password_confirmation" class="form-label">Konfirmasi Kata Sandi</label>
+                            <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" placeholder="Konfirmasi Kata Sandi" required>
                             <br />
                             <button type="submit" class="Reset-Password">Konfirmasi</button>
                         </div>

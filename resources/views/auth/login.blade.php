@@ -100,11 +100,11 @@
                     <label for="email" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control @error('email')is-invalid @enderror" id="floatingInput" id="email" placeholder="Email" autofocus>
                     <br />
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
-                    <p><a href="{{ url('/forgot-password') }}">Forgot Password?</a></p>
+                    <label for="password" class="form-label">Kata Sandi</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Kata Sandi">
+                    <p><a href="{{ url('/forgot-password') }}">Lupa kata sandi?</a></p>
                     <button class="signin" type="submit">Log In</button>
-                    <p>Belum punya akun? <a href="{{ url('/register') }}">Sign up</a></p>
+                    <p>Belum punya akun?<a href="{{ url('/register') }}">Sign up</a></p>
                   </div>
                 </form>
               </div>
