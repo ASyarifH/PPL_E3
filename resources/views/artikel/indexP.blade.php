@@ -138,6 +138,7 @@
             @foreach($artikels as $artikel)
                 <div class="col-md-4 mb-4 d-flex align-items-stretch">
                     <div class="card w-100">
+                        <a href="{{ route('artikel.showPetani', ['id' => $artikel->id]) }}">
                         @if($artikel->gambar)
                             <img src="{{ asset('media/'.$artikel->gambar) }}" class="card-img-top img-fluid" alt="Gambar Artikel" style="object-fit: cover; height: 200px;">
                         @else
@@ -146,10 +147,9 @@
                             </div>
                         @endif
                             <div class="card-body d-flex flex-column">
-                                <a href="{{ route('artikel.showPetani', ['id' => $artikel->id]) }}">
                                     <h5 class="card-title" style="color: black;">{{ $artikel->judul }}</h5>
                                     <p class="card-text">{{ \Carbon\Carbon::parse($artikel->created_at)->locale('id')->translatedFormat('j F Y') }}</p>
-                                </a>
+                            </a>
                                 <form id="bookmarkForm-{{ $artikel->id }}" action="{{ route('artikel.toggleBookmark', ['id' => $artikel->id]) }}" method="POST" class="bookmark-button-container">
                                     @csrf
                                     @php

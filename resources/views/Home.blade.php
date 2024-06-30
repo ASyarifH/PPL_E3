@@ -110,13 +110,13 @@
                             <a class="nav-link click-scroll" href="/"><strong>Home</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="artikel"><strong>Artikel</strong></a>
+                            <a class="nav-link click-scroll" href="AI"><strong>Prediksi Tanam</strong></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="diskusi"><strong>Diskusi</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="AI"><strong>Prediksi Tanam</strong></a>
+                            <a class="nav-link click-scroll" href="artikel"><strong>Artikel</strong></a>
                         </li>
                     </ul>
                         <!-- Button Login -->

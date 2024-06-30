@@ -104,13 +104,13 @@
                             <a class="nav-link click-scroll" href="/dashboardP"><strong>Beranda</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="/artikelP"><strong>Artikel</strong></a>
+                            <a class="nav-link click-scroll" href="/AI"><strong>Prediksi Tanam</strong></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="/diskusiP"><strong>Diskusi</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="AI"><strong>Prediksi Tanam</strong></a>
+                            <a class="nav-link click-scroll" href="/artikelP"><strong>Artikel</strong></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">

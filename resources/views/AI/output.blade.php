@@ -83,7 +83,7 @@
                             <img src="{{ asset('img/hasil.png') }}" alt="">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <h2 class="text-start">Tanaman yang cocok untuk kondisi saat ini: {{ $prediction }}</h2>
+                            <h2 class="text-start">Tanaman yang cocok untuk kondisi saat ini: <strong>{{ $prediction }}</strong></h2>
                             <hr>
                             @if (strpos($prediction, 'Padi') !== false)
                                 <h2 class="text-start"> Di daerah {{ $tempat }}, dengan {{ $curah_hujan }}, kelembapan {{ $kelembapan }}%, dan suhu  {{ $suhu }}°C maka padi cocok untuk ditanam pada saat ini.</h2>
